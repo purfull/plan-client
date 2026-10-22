@@ -1,0 +1,299 @@
+// ============================
+// MIXINS — Reusable Patterns
+// ============================
+@use 'sass:color';
+@use 'variables' as *;
+
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-col($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+@mixin flex-row($gap: 0) {
+  display: flex;
+  align-items: center;
+  @if $gap != 0 {
+    gap: $gap;
+  }
+}
+
+// Container
+@mixin container($max: $container-max) {
+  width: 100%;
+  max-width: $max;
+  margin-inline: auto;
+  padding-inline: $space-lg;
+
+  @include tablet {
+    padding-inline: $space-xl;
+  }
+}
+
+// Grid
+@mixin grid($cols: 1, $gap: $space-lg) {
+  display: grid;
+  grid-template-columns: repeat($cols, 1fr);
+  gap: $gap;
+}
+
+// Responsive Media Queries
+@mixin mobile {
+  @media (max-width: #{$bp-sm - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$bp-md}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-lg}) {
+    @content;
+  }
+}
+
+@mixin wide {
+  @media (min-width: #{$bp-xl}) {
+    @content;
+  }
+}
+
+// Card Styles
+@mixin card($padding: $space-xl) {
+  background: $card-bg;
+  border: 1px solid $border-color;
+  border-radius: $radius-lg;
+  padding: $padding;
+  transition: box-shadow $transition-smooth, transform $transition-smooth, border-color $transition-smooth;
+
+  &:hover {
+    box-shadow: $shadow-card-hover;
+    border-color: color.adjust($border-color, $lightness: -5%);
+  }
+}
+
+@mixin card-elevated {
+  @include card;
+  box-shadow: $shadow-md;
+
+  &:hover {
+    box-shadow: $shadow-xl;
+    transform: translateY(-2px);
+  }
+}
+
+// Button Base
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $space-sm;
+  font-family: $font-primary;
+  font-weight: $fw-semibold;
+  font-size: $fs-sm;
+  line-height: 1;
+  border: none;
+  cursor: pointer;
+  transition: all $transition-smooth;
+  white-space: nowrap;
+  text-decoration: none;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+@mixin btn-primary {
+  @include btn-base;
+  background: $accent-amber;
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-md;
+  font-size: $fs-sm;
+
+  &:hover:not(:disabled) {
+    background: $accent-amber-hover;
+    box-shadow: $shadow-amber;
+    transform: translateY(-1px);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+  }
+}
+
+@mixin btn-secondary {
+  @include btn-base;
+  background: transparent;
+  color: $text-main;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-md;
+  border: 1px solid $border-color;
+
+  &:hover:not(:disabled) {
+    background: $bg-elevated;
+    border-color: color.adjust($border-color, $lightness: -8%);
+  }
+}
+
+// Badge / Pill
+@mixin pill {
+  display: inline-flex;
+  align-items: center;
+  gap: $space-sm;
+  padding: 0.4rem 1rem;
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  font-weight: $fw-medium;
+  font-family: $font-secondary;
+  letter-spacing: 0.02em;
+}
+
+// Section Spacing
+@mixin section-padding {
+  padding: $space-4xl 0;
+
+  @include tablet {
+    padding: $space-5xl 0;
+  }
+}
+
+// Typography helpers
+@mixin heading-xl {
+  font-family: $font-primary;
+  font-weight: $fw-extrabold;
+  font-size: $fs-3xl;
+  line-height: $lh-tight;
+  color: $text-main;
+  letter-spacing: -0.03em;
+
+  @include tablet {
+    font-size: $fs-4xl;
+  }
+
+  @include desktop {
+    font-size: $fs-hero;
+  }
+}
+
+@mixin heading-lg {
+  font-family: $font-primary;
+  font-weight: $fw-bold;
+  font-size: $fs-xl;
+  line-height: $lh-snug;
+  color: $text-main;
+  letter-spacing: -0.02em;
+
+  @include tablet {
+    font-size: $fs-2xl;
+  }
+
+  @include desktop {
+    font-size: $fs-3xl;
+  }
+}
+
+@mixin heading-md {
+  font-family: $font-primary;
+  font-weight: $fw-bold;
+  font-size: $fs-lg;
+  line-height: $lh-snug;
+  color: $text-main;
+  letter-spacing: -0.01em;
+
+  @include tablet {
+    font-size: $fs-xl;
+  }
+}
+
+@mixin body-text {
+  font-family: $font-secondary;
+  font-weight: $fw-regular;
+  font-size: $fs-base;
+  line-height: $lh-relaxed;
+  color: $text-muted;
+}
+
+// Glassmorphism (subtle for light mode)
+@mixin glass-light {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+// Gradient Text
+@mixin gradient-text($from: $accent-amber, $to: $accent-amber-light) {
+  background: linear-gradient(135deg, $from, $to);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Smooth scrollbar
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $border-color;
+    border-radius: $radius-full;
+
+    &:hover {
+      background: $text-light;
+    }
+  }
+}
+
+// Shine / shimmer animation
+@mixin shimmer {
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.4) 50%,
+      transparent 100%
+    );
+    animation: shimmer 3s infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}

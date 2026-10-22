@@ -1,0 +1,136 @@
+// ============================
+// VARIABLES — Design Tokens
+// ============================
+
+// Colors
+$bg-primary: #FAFAFA;
+$bg-secondary: #FFFFFF;
+$bg-elevated: #F8F9FA;
+$card-bg: #FFFFFF;
+$card-bg-alt: #F9FAFB;
+
+$text-main: #111827;
+$text-secondary: #374151;
+$text-muted: #6B7280;
+$text-light: #9CA3AF;
+
+$accent-amber: #D97706;
+$accent-amber-light: #F59E0B;
+$accent-amber-glow: rgba(217, 119, 6, 0.12);
+$accent-amber-bg: #FEF3C7;
+$accent-amber-hover: #B45309;
+
+$success-green: #059669;
+$success-green-bg: #D1FAE5;
+
+$danger-red: #EF4444;
+$danger-red-bg: #FEE2E2;
+
+$border-color: #E5E7EB;
+$border-light: #F3F4F6;
+
+// Typography
+$font-primary: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$font-serif: 'Instrument Serif', 'Playfair Display', Georgia, serif;
+
+$fw-regular: 400;
+$fw-medium: 500;
+$fw-semibold: 600;
+$fw-bold: 700;
+$fw-extrabold: 800;
+
+$fs-xs: 0.75rem;
+$fs-sm: 0.875rem;
+$fs-base: 1rem;
+$fs-md: 1.125rem;
+$fs-lg: 1.25rem;
+$fs-xl: 1.5rem;
+$fs-2xl: 2rem;
+$fs-3xl: 2.5rem;
+$fs-4xl: 3rem;
+$fs-5xl: 3.5rem;
+$fs-hero: 4rem;
+
+$lh-tight: 1.15;
+$lh-snug: 1.3;
+$lh-normal: 1.5;
+$lh-relaxed: 1.65;
+
+// Spacing
+$space-xs: 0.25rem;
+$space-sm: 0.5rem;
+$space-md: 1rem;
+$space-lg: 1.5rem;
+$space-xl: 2rem;
+$space-2xl: 3rem;
+$space-3xl: 4rem;
+$space-4xl: 6rem;
+$space-5xl: 8rem;
+
+// Borders
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 14px;
+$radius-xl: 20px;
+$radius-2xl: 28px;
+$radius-full: 9999px;
+
+// Shadows
+$shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.06), 0 2px 4px -1px rgba(0, 0, 0, 0.04);
+$shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+$shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.06), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+$shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+$shadow-card-hover: 0 8px 25px -5px rgba(0, 0, 0, 0.08), 0 4px 10px -3px rgba(0, 0, 0, 0.04);
+$shadow-amber: 0 4px 14px -3px rgba(217, 119, 6, 0.25);
+
+// Transitions
+$transition-fast: 150ms ease;
+$transition-base: 250ms ease;
+$transition-smooth: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+$transition-bounce: 500ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+// Breakpoints
+$bp-sm: 640px;
+$bp-md: 768px;
+$bp-lg: 1024px;
+$bp-xl: 1280px;
+$bp-2xl: 1440px;
+
+// Container
+$container-max: 1200px;
+$container-narrow: 800px;
+$container-wide: 1400px;
+
+// Z-index
+$z-navbar: 100;
+$z-modal: 200;
+$z-tooltip: 300;
+
+// CSS Custom Properties (for runtime usage)
+:root {
+  --bg-primary: #{$bg-primary};
+  --bg-secondary: #{$bg-secondary};
+  --bg-elevated: #{$bg-elevated};
+  --card-bg: #{$card-bg};
+  --text-main: #{$text-main};
+  --text-secondary: #{$text-secondary};
+  --text-muted: #{$text-muted};
+  --text-light: #{$text-light};
+  --accent-amber: #{$accent-amber};
+  --accent-amber-light: #{$accent-amber-light};
+  --accent-amber-glow: #{$accent-amber-glow};
+  --accent-amber-bg: #{$accent-amber-bg};
+  --border-color: #{$border-color};
+  --border-light: #{$border-light};
+  --font-primary: #{$font-primary};
+  --font-secondary: #{$font-secondary};
+  --shadow-card: #{$shadow-card};
+  --shadow-card-hover: #{$shadow-card-hover};
+  --radius-md: #{$radius-md};
+  --radius-lg: #{$radius-lg};
+  --transition-base: #{$transition-base};
+  --transition-smooth: #{$transition-smooth};
+}
